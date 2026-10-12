@@ -24,7 +24,7 @@ function PayCard({ order, methods }: { order: Order; methods: Option[] }) {
 
     return (
         <form onSubmit={submit} className="space-y-3">
-            <p className="text-muted">Registe o pagamento de <b>{aoa(order.price)}</b>. A CAFPMIF irá confirmá-lo.</p>
+            <p className="text-muted">Registe o pagamento de <b>{aoa(order.price)}</b>. A Salu irá confirmá-lo.</p>
             <div className="grid gap-3 sm:grid-cols-2">
                 <Select label="Método" allowDeselect={false} data={methods} value={form.data.method} onChange={(v) => form.setData('method', v ?? '')} error={form.errors.method} />
                 <TextInput label="Referência / n.º de transferência" placeholder="Opcional para numerário" value={form.data.reference}

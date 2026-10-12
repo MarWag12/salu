@@ -1,4 +1,5 @@
 {
+  "name": "salu-app",
   "private": true,
   "type": "module",
   "scripts": {

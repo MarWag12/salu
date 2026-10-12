@@ -25,7 +25,7 @@ class EnsureRole
             $request->session()->invalidate();
             $request->session()->regenerateToken();
 
-            return redirect()->route('login')->withErrors(['email' => 'A sua conta está desactivada. Contacte a CAFPMIF.']);
+            return redirect()->route('login')->withErrors(['email' => 'A sua conta está desactivada. Contacte a Salu.']);
         }
 
         if (! in_array($user->role, $roles, true)) {

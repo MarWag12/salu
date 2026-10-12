@@ -11,7 +11,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Inertia\Testing\AssertableInertia as Assert;
 use Tests\TestCase;
 
-class CafpmifTest extends TestCase
+class SaluTest extends TestCase
 {
     use RefreshDatabase;
 

@@ -7,7 +7,7 @@ const brand: MantineColorsTuple = [
 
 const font = "'Plus Jakarta Sans Variable', system-ui, -apple-system, 'Segoe UI', sans-serif";
 
-/** Tema Mantine alinhado com o design da CAFPMIF (azul → ciano). */
+/** Tema Mantine alinhado com o design da Salu (azul → ciano). */
 export const theme = createTheme({
     primaryColor: 'brand',
     primaryShade: 6,

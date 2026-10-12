@@ -1,0 +1,72 @@
+# Blueprint do Render para a Salu (Laravel + Inertia/React + Filament + PostgreSQL).
+# Uso: Render → New → Blueprint → seleccione este repositório. Preencha as variáveis marcadas "sync: false".
+databases:
+  - name: salu-db
+    databaseName: salu
+    user: salu
+    plan: free # a base grátis expira ao fim de 30 dias; para produção use um plano pago (ex.: basic-256mb)
+
+services:
+  - type: web
+    name: salu
+    runtime: docker
+    plan: free # o serviço grátis "adormece" sem tráfego e não tem disco persistente (ver README)
+    healthCheckPath: /up
+    autoDeploy: true
+    envVars:
+      - key: APP_NAME
+        value: Salu
+      - key: APP_ENV
+        value: production
+      - key: APP_DEBUG
+        value: "false"
+      - key: APP_KEY # gerar com: echo "base64:$(openssl rand -base64 32)"
+        sync: false
+      - key: APP_URL # opcional: sem valor usa o URL público do Render (RENDER_EXTERNAL_URL)
+        sync: false
+      - key: APP_LOCALE
+        value: pt
+      - key: APP_FALLBACK_LOCALE
+        value: pt
+      - key: LOG_CHANNEL
+        value: stderr
+      - key: LOG_LEVEL
+        value: warning
+
+      # Base de dados PostgreSQL (ligação interna do Render)
+      - key: DB_CONNECTION
+        value: pgsql
+      - key: DB_URL
+        fromDatabase:
+          name: salu-db
+          property: connectionString
+
+      # Sessões, cache e filas na base de dados (sem Redis nem worker)
+      - key: SESSION_DRIVER
+        value: database
+      - key: SESSION_SECURE_COOKIE
+        value: "true"
+      - key: CACHE_STORE
+        value: database
+      - key: QUEUE_CONNECTION
+        value: sync
+      - key: BROADCAST_CONNECTION # "log" = sem tempo real (ver README para activar o Reverb)
+        value: log
+      - key: FILESYSTEM_DISK
+        value: local
+      - key: MAIL_MAILER # "log" = e-mails (ex.: recuperar palavra-passe) vão para o log; configure SMTP para enviar a sério
+        value: log
+      - key: MAIL_FROM_NAME
+        value: Salu
+
+      # Conta de administrador criada no arranque (https://<url>/admin)
+      - key: ADMIN_NAME
+        value: Administrador Salu
+      - key: ADMIN_EMAIL
+        sync: false
+      - key: ADMIN_PASSWORD
+        sync: false
+      - key: SEED_CATALOG
+        value: "true"
+      - key: SEED_DEMO_DATA
+        value: "false"

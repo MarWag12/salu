@@ -39,7 +39,7 @@ class AuthController extends Controller
             $request->session()->invalidate();
             $request->session()->regenerateToken();
 
-            return back()->withErrors(['email' => 'A sua conta está desactivada. Contacte a CAFPMIF.'])->onlyInput('email');
+            return back()->withErrors(['email' => 'A sua conta está desactivada. Contacte a Salu.'])->onlyInput('email');
         }
 
         $request->session()->regenerate();
@@ -91,7 +91,7 @@ class AuthController extends Controller
         $request->session()->regenerate();
         AuditLog::record('registo', 'Nova conta criada ('.$user->roleLabel().')');
 
-        return redirect($user->homeRoute())->with('success', 'Conta criada com sucesso. Bem-vindo à CAFPMIF!');
+        return redirect($user->homeRoute())->with('success', 'Conta criada com sucesso. Bem-vindo à Salu!');
     }
 
     public function logout(Request $request)

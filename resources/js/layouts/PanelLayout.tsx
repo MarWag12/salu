@@ -49,7 +49,9 @@ export default function PanelLayout({ children }: { children: ReactNode }) {
             <header className="sticky top-0 z-40 flex h-16 items-center justify-between border-b border-line bg-white px-4 lg:px-7">
                 <div className="flex items-center gap-2">
                     <Burger opened={open} onClick={() => setOpen((o) => !o)} className="lg:hidden" aria-label="Menu" />
-                    <Link href={user?.home ?? '/'} className="text-[1.35rem] font-extrabold text-ink no-underline">CAFPMIF</Link>
+                    <Link href={user?.home ?? '/'} aria-label="Salu" className="flex items-center no-underline">
+                        <img src="/images/salu-logo.png" alt="Salu" className="h-[46px] w-auto" />
+                    </Link>
                 </div>
                 {user && (
                     <div className="flex items-center gap-3">

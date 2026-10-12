@@ -15,7 +15,7 @@ import { createRoot } from 'react-dom/client';
 import { theme } from './theme';
 
 createInertiaApp({
-    title: (title) => (title ? `${title} — CAFPMIF` : 'CAFPMIF'),
+    title: (title) => (title ? `${title} — Salu` : 'Salu'),
     resolve: (name) => resolvePageComponent(`./Pages/${name}.tsx`, import.meta.glob('./Pages/**/*.tsx')),
     setup({ el, App, props }) {
         createRoot(el).render(

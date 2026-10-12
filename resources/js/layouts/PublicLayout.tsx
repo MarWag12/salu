@@ -76,7 +76,7 @@ export default function PublicLayout({ children }: { children: ReactNode }) {
                         </div>
                     </div>
                     <div className="mt-8 border-t border-slate-800 pt-5 text-sm text-slate-400">
-                        © {new Date().getFullYear()} CAFPMIF. Todos os direitos reservados.
+                        © {new Date().getFullYear()} Salu. Todos os direitos reservados.
                     </div>
                 </div>
             </footer>

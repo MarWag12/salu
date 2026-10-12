@@ -14,7 +14,7 @@ function RegisterForm({ tipo, categories }: { tipo: Tipo; categories: Category[]
         tipo, name: '', email: '', phone: '', municipality: '', experience_years: 0 as number | string,
         categories: [] as number[], password: '', password_confirmation: '',
     });
-    const set = <K extends keyof typeof form.data>(k: K, v: (typeof form.data)[K]) => form.setData(k, v);
+    const set = <K extends keyof typeof form.data>(k: K, v: (typeof form.data)[K]) => form.setData(k, v as never);
 
     const submit = (e: FormEvent) => {
         e.preventDefault();
@@ -70,7 +70,7 @@ export default function Register({ tipo, categories }: { tipo: Tipo; categories:
         <>
             <Head title="Criar conta" />
             <h1 className="mb-1 text-center text-[2rem]">Criar conta</h1>
-            <p className="mb-6 text-center text-muted">Junte-se à CAFPMIF em menos de um minuto</p>
+            <p className="mb-6 text-center text-muted">Junte-se à Salu em menos de um minuto</p>
 
             <div className="mb-5 grid grid-cols-2 gap-2.5">
                 <Link href={routes.register()} className={tab(tipo === 'cliente')}><IconUser size={18} /> Sou Cliente</Link>

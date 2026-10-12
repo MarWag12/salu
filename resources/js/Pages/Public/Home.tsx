@@ -119,7 +119,7 @@ export default function Home({ categories, featured, stats }: Props) {
                 <div className="container-page">
                     <div className="grid items-center gap-12 rounded-[36px] border border-line bg-white p-8 sm:p-14 lg:grid-cols-2">
                         <div>
-                            <span className="inline-block rounded-full bg-brand-soft px-4 py-1.5 text-[.85rem] font-bold uppercase text-brand">Porquê escolher a CAFPMIF?</span>
+                            <span className="inline-block rounded-full bg-brand-soft px-4 py-1.5 text-[.85rem] font-bold uppercase text-brand">Porquê escolher a Salu?</span>
                             <h2 className="my-5 text-[2.3rem]">A plataforma que conecta <span className="text-brand">talentos</span> a <span className="text-brand-teal">oportunidades</span></h2>
                             <p className="mb-6 text-[1.2rem] text-muted">Somos uma plataforma segura e confiável para ligar técnicos qualificados a clientes que precisam de manutenção doméstica de qualidade.</p>
                             <Button component={Link} href={routes.register()} size="lg" variant="gradient" gradient={{ from: '#1e88e5', to: '#14b3c4', deg: 135 }} rightSection={<IconArrowRight size={18} />}>
@@ -144,7 +144,7 @@ export default function Home({ categories, featured, stats }: Props) {
                         <div>
                             <div className="mb-5 grid size-[76px] place-items-center rounded-full bg-white text-brand"><IconBriefcase size={34} /></div>
                             <h3 className="text-[1.9rem] !text-white">É um Técnico?</h3>
-                            <p className="text-[1.15rem] opacity-90">Junte-se à equipa de técnicos da CAFPMIF e alcance mais clientes. Aumente a sua visibilidade e faça crescer o seu negócio.</p>
+                            <p className="text-[1.15rem] opacity-90">Junte-se à equipa de técnicos da Salu e alcance mais clientes. Aumente a sua visibilidade e faça crescer o seu negócio.</p>
                             <Button component={Link} href={routes.register('tecnico')} fullWidth size="lg" color="white" c="brand.6" rightSection={<IconArrowRight size={18} />}>Registar como Técnico</Button>
                         </div>
                         <div>

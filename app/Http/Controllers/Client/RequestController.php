@@ -138,7 +138,7 @@ class RequestController extends Controller
         Payment::create($data + ['service_request_id' => $order->id, 'amount' => $order->price, 'status' => Payment::PENDENTE]);
         AuditLog::record('pagamento_registado', "Pagamento do pedido {$order->code} registado (aguarda confirmação)");
 
-        return back()->with('success', 'Pagamento registado. Aguarda confirmação da CAFPMIF.');
+        return back()->with('success', 'Pagamento registado. Aguarda confirmação da Salu.');
     }
 
     public function review(Request $request, ServiceRequest $order)

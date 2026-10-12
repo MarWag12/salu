@@ -19,6 +19,8 @@ return Application::configure(basePath: dirname(__DIR__))
     // Autorização dos canais privados (Laravel Echo / Reverb): POST /broadcasting/auth
     ->withBroadcasting(__DIR__.'/../routes/channels.php', ['middleware' => ['web', 'auth']])
     ->withMiddleware(function (Middleware $middleware): void {
+        // Render (e outros PaaS) terminam o HTTPS no proxy: confiar nos cabeçalhos X-Forwarded-*.
+        $middleware->trustProxies(at: '*');
         $middleware->web(append: [HandleInertiaRequests::class]);
         $middleware->alias(['role' => EnsureRole::class]);
     })

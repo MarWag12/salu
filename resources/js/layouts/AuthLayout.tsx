@@ -7,7 +7,7 @@ import { routes } from '@/lib/routes';
 const FEATURES = [
     { icon: <IconBriefcase size={26} />, title: 'Técnicos verificados', text: 'Todos passam por verificação de identidade (KYC)' },
     { icon: <IconStar size={26} />, title: 'Serviços avaliados', text: 'Avaliações reais de clientes verificados' },
-    { icon: <IconShieldCheck size={26} />, title: 'Pagamentos seguros', text: 'Pagamentos registados e confirmados pela CAFPMIF' },
+    { icon: <IconShieldCheck size={26} />, title: 'Pagamentos seguros', text: 'Pagamentos registados e confirmados pela Salu' },
 ];
 
 export default function AuthLayout({ children }: { children: ReactNode }) {
@@ -16,9 +16,8 @@ export default function AuthLayout({ children }: { children: ReactNode }) {
             <Flash />
             <div className="grid w-[min(1240px,100%)] items-center gap-12 lg:grid-cols-[1.1fr_.9fr]">
                 <section className="hidden text-white lg:block">
-                    <Link href={routes.home} className="mb-10 flex items-center gap-4 text-[2.6rem] font-extrabold text-white no-underline">
-                        <span className="grid size-[84px] place-items-center rounded-full bg-white text-brand"><IconShieldCheck size={44} /></span>
-                        CAFPMIF
+                    <Link href={routes.home} aria-label="Salu — página inicial" className="mb-10 inline-flex rounded-[28px] bg-white px-8 py-5 shadow-[0_20px_40px_-18px_rgba(0,0,0,.45)]">
+                        <img src="/images/salu-logo.png" alt="Salu — Gestão de Manutenção Doméstica" className="h-[150px] w-auto" />
                     </Link>
                     <h2 className="max-w-[620px] text-[2rem] font-semibold !text-white">A sua casa em boas mãos, em todo o país</h2>
                     <p className="mb-8 max-w-[620px] text-[1.15rem] opacity-90">

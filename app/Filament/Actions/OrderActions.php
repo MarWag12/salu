@@ -48,7 +48,7 @@ final class OrderActions
             ->action(function (ServiceRequest $record, array $data) {
                 $record->update(['status' => ServiceRequest::CANCELADO, 'cancel_reason' => $data['cancel_reason'] ?? null]);
                 AuditLog::record('pedido_cancelado', "Pedido {$record->code} cancelado pelo administrador");
-                Realtime::order($record, 'Pedido cancelado', "O pedido {$record->code} foi cancelado pela CAFPMIF.", Realtime::parties($record));
+                Realtime::order($record, 'Pedido cancelado', "O pedido {$record->code} foi cancelado pela Salu.", Realtime::parties($record));
                 Notification::make()->success()->title('Pedido cancelado.')->send();
             });
     }

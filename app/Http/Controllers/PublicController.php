@@ -29,7 +29,7 @@ class PublicController extends Controller
         $services = Service::active()->with(['category', 'media'])
             ->when($request->filled('q'), function ($q) use ($request) {
                 $term = '%'.$request->string('q')->trim().'%';
-                $q->where(fn ($w) => $w->where('name', 'like', $term)->orWhere('description', 'like', $term));
+                $q->where(fn ($w) => $w->whereLike('name', $term)->orWhereLike('description', $term));
             })
             ->when($request->filled('categoria'), fn ($q) => $q->whereHas('category', fn ($c) => $c->where('slug', $request->string('categoria'))))
             ->orderBy($request->get('ordem') === 'preco' ? 'base_price' : 'name')
@@ -58,7 +58,7 @@ class PublicController extends Controller
     public function technicians(Request $request)
     {
         $technicians = Technician::approved()->with(['user', 'categories'])
-            ->when($request->filled('q'), fn ($q) => $q->whereHas('user', fn ($u) => $u->where('name', 'like', '%'.$request->string('q')->trim().'%')))
+            ->when($request->filled('q'), fn ($q) => $q->whereHas('user', fn ($u) => $u->whereLike('name', '%'.$request->string('q')->trim().'%')))
             ->when($request->filled('categoria'), fn ($q) => $q->whereHas('categories', fn ($c) => $c->where('slug', $request->string('categoria'))))
             ->when($request->get('ordem') === 'experiencia',
                 fn ($q) => $q->orderByDesc('experience_years'),
@@ -87,7 +87,7 @@ class PublicController extends Controller
 
         return response()->json(
             Service::active()->with('category')
-                ->where('name', 'like', '%'.$term.'%')
+                ->whereLike('name', '%'.$term.'%')
                 ->orderBy('name')->limit(6)->get()
                 ->map(fn ($s) => ['name' => $s->name, 'slug' => $s->slug, 'category' => $s->category?->name])
         );

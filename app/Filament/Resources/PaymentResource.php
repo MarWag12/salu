@@ -41,7 +41,7 @@ class PaymentResource extends Resource
 
     public static function canCreate(): bool
     {
-        return false; // O cliente regista o pagamento; a CAFPMIF confirma-o.
+        return false; // O cliente regista o pagamento; a Salu confirma-o.
     }
 
     public static function table(Table $table): Table
