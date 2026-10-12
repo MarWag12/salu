@@ -18,7 +18,7 @@ RUN composer install --no-dev --no-interaction --no-progress --prefer-dist \
     --no-scripts --no-autoloader --ignore-platform-reqs
 
 # ---------- 3) Imagem final: PHP 8.3 + Apache ----------
-FROM php:8.3-apache
+FROM php:8.4-apache
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends libpq-dev libicu-dev libzip-dev libpng-dev libjpeg-dev libfreetype6-dev unzip \
