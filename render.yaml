@@ -1,0 +1,60 @@
+# Blueprint do Render: serviço web (Docker) + base de dados PostgreSQL.
+# Em render.com: New > Blueprint > escolher este repositório.
+databases:
+  - name: salu-db
+    databaseName: salu
+    user: salu
+    plan: free
+
+services:
+  - type: web
+    name: salu
+    runtime: docker
+    plan: free
+    healthCheckPath: /up
+    envVars:
+      - key: APP_NAME
+        value: Salu
+      - key: APP_ENV
+        value: production
+      - key: APP_DEBUG
+        value: "false"
+      - key: APP_KEY
+        generateValue: false   # defina manualmente: php artisan key:generate --show
+        sync: false
+      - key: APP_URL
+        sync: false            # ex.: https://salu.onrender.com
+      - key: APP_LOCALE
+        value: pt_PT
+      - key: LOG_CHANNEL
+        value: stderr
+      - key: DB_CONNECTION
+        value: pgsql
+      - key: DB_URL
+        fromDatabase:
+          name: salu-db
+          property: connectionString
+      - key: SESSION_DRIVER
+        value: database
+      - key: CACHE_STORE
+        value: database
+      - key: QUEUE_CONNECTION
+        value: sync            # sem worker: notificações são enviadas na própria pedido
+      - key: BROADCAST_CONNECTION
+        value: log
+      - key: MAIL_MAILER
+        value: log             # troque por smtp quando tiver servidor de e-mail
+      - key: FILESYSTEM_DISK
+        value: local
+      - key: ADMIN_EMAIL
+        value: admin@salu.ao
+      - key: ADMIN_PASSWORD
+        sync: false            # defina uma palavra-passe forte
+      - key: SALU_REQUIRE_EMAIL_VERIFICATION
+        value: "false"         # "true" só com SMTP configurado
+      - key: SALU_SIMULATED_PAYMENTS
+        value: "true"          # demonstração; ponha "false" com Stripe real
+      - key: SALU_PLATFORM_FEE
+        value: "10"
+      - key: SALU_MIN_PAYOUT
+        value: "5000"

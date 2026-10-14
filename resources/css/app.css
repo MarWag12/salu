@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        /* Cores primárias - Verde TaskRabbit */
+        --color-primary: 93 186 64;
+        --color-primary-hover: 77 170 54;
+        --color-primary-light: 220 252 231;
+        --color-primary-dark: 22 163 74;
+
+        /* Cores de status de pricing */
+        --color-pricing-fixed: 59 130 246;
+        --color-pricing-hourly: 249 115 22;
+        --color-pricing-variable: 16 185 129;
+
+        /* Cores de status de pedidos */
+        --color-status-pending: 234 179 8;
+        --color-status-accepted: 59 130 246;
+        --color-status-in-progress: 6 182 212;
+        --color-status-delivered: 249 115 22;
+        --color-status-completed: 34 197 94;
+        --color-status-cancelled: 239 68 68;
+        --color-status-disputed: 239 68 68;
+    }
+}
+
+@layer components {
+    /* Botões primários com cor verde TaskRabbit */
+    .btn-primary {
+        @apply bg-primary-400 hover:bg-primary-600 text-white font-semibold py-2 px-4 rounded-lg transition-colors;
+    }
+
+    .btn-primary-outline {
+        @apply border-2 border-primary-400 text-primary-400 hover:bg-primary-400 hover:text-white font-semibold py-2 px-4 rounded-lg transition-colors;
+    }
+
+    /* Links com cor primária */
+    .link-primary {
+        @apply text-primary-600 hover:text-primary-700 underline;
+    }
+
+    /* Badges de pricing */
+    .badge-pricing-fixed {
+        @apply bg-blue-100 text-blue-800 text-sm font-medium px-2.5 py-0.5 rounded;
+    }
+
+    .badge-pricing-hourly {
+        @apply bg-orange-100 text-orange-800 text-sm font-medium px-2.5 py-0.5 rounded;
+    }
+
+    .badge-pricing-variable {
+        @apply bg-green-100 text-green-800 text-sm font-medium px-2.5 py-0.5 rounded;
+    }
+}

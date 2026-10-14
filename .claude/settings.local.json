@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install:*)",
+      "Bash(composer require:*)",
+      "Bash(php artisan:*)",
+      "Bash(find:*)",
+      "Bash(mkdir:*)",
+      "Bash(npm run build:*)",
+      "Bash(php:*)",
+      "Bash(curl:*)",
+      "Bash(echo \"=== VERIFICAR SERVIÇOS ===\" curl -s http://127.0.0.1:8765/services)",
+      "Bash(cat:*)",
+      "Bash(composer show:*)",
+      "Bash(dir \"c:\\laragon\\www\\salu\" /s /b)",
+      "Bash(findstr:*)",
+      "Bash(dir:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
